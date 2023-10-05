@@ -29,6 +29,7 @@ input.addEventListener("keydown", (e) => {
       }
     }
   }
+  console.log(e.key);
 });
 
 //--------------------------------- When Button is Clicked--------------------------------
