@@ -55,6 +55,7 @@ clickme.addEventListener("click", () => {
             You have taken ${clickTimes} Guesses`;
             i = 5;
             clickTimes = 0;
+            document.getElementById("hint").innerText="";
     } else {
       i--;
       if(input.value>randomNo){
