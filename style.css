@@ -76,6 +76,9 @@ color:white;
 font-weight: bold;
 font-size: 16px;
 padding: 20px 0;
+height: 50px;
+  text-align: center;
+  line-height: 25px;
 }
 
 #guessedNum{
@@ -104,10 +107,12 @@ padding: 20px 0;
   
 
 }
-#leftTry{
+#hint{
   height: 50px;
-  text-align: center;
-  line-height: 25px;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 50px;
+  color: white;
 }
 @keyframes color {
   100%{

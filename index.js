@@ -1,4 +1,4 @@
-let randomNo = Math.floor(Math.random() * (10 - 1) + 1);
+let randomNo = Math.floor(Math.random() * (50 - 1) + 1);
 let input = document.getElementById("guessNo");
 let clickme = document.querySelector("button");
 let video = document.getElementById("vid");
@@ -10,6 +10,7 @@ let number = "";
 input.addEventListener("keydown", (e) => {
   if (e.key === "Backspace" && number.length == 0) {
     document.getElementById("leftTry").innerText = "Enter a Number From 1 - 9";
+    document.getElementById("hint").innerText="";
   } else if (
     (e.key === "Backspace" && number.length > 1) ||
     (e.key === "Backspace" && number.length == 1)
@@ -18,12 +19,13 @@ input.addEventListener("keydown", (e) => {
     if (number.length == 1) {
       document.getElementById("leftTry").innerText = "";
     }
+    document.getElementById("hint").innerText="";
   } else {
     if (parseInt(e.key) >= 1 && parseInt(e.key) <= 9) {
       number += e.key;
-      if (number.length > 1) {
+      if (number.length > 2) {
         document.getElementById("leftTry").innerText =
-          "One digit Number is allowed";
+          "Only one and two digit Number is allowed";
       } else {
         document.getElementById("leftTry").innerText = "";
       }
@@ -35,13 +37,13 @@ input.addEventListener("keydown", (e) => {
 //--------------------------------- When Button is Clicked--------------------------------
 let clickTimes = 0;
 let i = 5;
-clickme.addEventListener("click", (e) => {
-  if (number == "") {
+clickme.addEventListener("click", () => {
+  if (input.value == "") {
     document.getElementById("leftTry").innerText =
       "Please Enter a Number From 1 - 9";
   } else {
     clickTimes++;
-    if (number == randomNo) {
+    if (input.value == randomNo) {
       document.getElementById("cover").className =
         "animate__animated animate__hinge";
       audio.play();
@@ -55,28 +57,35 @@ clickme.addEventListener("click", (e) => {
             clickTimes = 0;
     } else {
       i--;
-      document.getElementById(
-        "leftTry"
-      ).innerText = `Try Again!!! ${i} Chance Left`;
+      if(input.value>randomNo){
+        document.getElementById("leftTry").innerText = `Try Again!!! ${i} Chance Left`;
+        document.getElementById("hint").innerText="Hint:- Number is less than the entered number "
+      }else{
+        document.getElementById("leftTry").innerText = `Try Again!!! ${i} Chance Left`;
+        document.getElementById("hint").innerText="Hint:- Number is greter than the entered number "
+      }
+      
     }
 
-    if (clickTimes == 5 && number == randomNo) {
+    if (clickTimes == 5 && input.value == randomNo) {
       document.getElementById(
         "leftTry"
       ).innerText = `Congratulation You Guessed it right!!!${"\n"}
             You have taken ${clickTimes} Guesses`;
+            document.getElementById("hint").innerText="";
     } else if (clickTimes == 5) {
       document.getElementById("leftTry").innerText =
         "Game Over!!! You have used all your guesses";
+        document.getElementById("hint").innerText="";
       i = 5;
       clickTimes = 0;
     }
   }
 });
-
-document.addEventListener("keydown", function(event) {
-  if (event.key >= "0" && event.key <= "9") {
-    console.log("Key pressed:", parseInt(event.key));
-    console.log("Keycode:", event.keyCode);
-  }
-});
+// gameOver();
+// function blank(id){
+//   document.getElementById(`${id}`).innerText=""
+// }
+// function hint(){
+//   document.getElementById(`${id}`).innerText=""
+// }
