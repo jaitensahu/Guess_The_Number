@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess the Number</title>
+  <link rel="stylesheet" href="style.css">
+  
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+</head>
+
+<body>
+  <video id="vid" src="../javascript/Assets/Happy Birthday Confetti.mp4" ></video>
+  <div class="container">
+    <h2>Guess The Number</h2>
+
+    <div class="sub-container">
+      <div id="numberToBeGuess" class="content">
+        <input id="guessNo" type="text" required></div>
+      <div id="guessedNum" class="content"></div>
+      <div id="cover" >?</div>
+    </div>
+    <button>Check</button>
+   
+  </div>
+  <p id="leftTry"></p>
+  <audio id="aud">
+    <source src="../javascript/Assets/Winner Sound Effects-[AudioTrimmer.com].mp3">
+  </audio> 
+  <script src="./index.js"></script>
+</body>
+
+</html>
