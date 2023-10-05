@@ -19,7 +19,7 @@ input.addEventListener("keydown", (e) => {
       document.getElementById("leftTry").innerText = "";
     }
   } else {
-    if (parseInt(e.keyCode) >= 97 && parseInt(e.keyCode) <= 105) {
+    if (parseInt(e.key) >= 1 && parseInt(e.key) <= 9) {
       number += e.key;
       if (number.length > 1) {
         document.getElementById("leftTry").innerText =
@@ -74,3 +74,9 @@ clickme.addEventListener("click", (e) => {
   }
 });
 
+document.addEventListener("keydown", function(event) {
+  if (event.key >= "0" && event.key <= "9") {
+    console.log("Key pressed:", parseInt(event.key));
+    console.log("Keycode:", event.keyCode);
+  }
+});
