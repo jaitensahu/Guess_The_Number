@@ -63,7 +63,7 @@ clickme.addEventListener("click", () => {
         document.getElementById("hint").innerText="Hint:- Number is less than the entered number "
       }else{
         document.getElementById("leftTry").innerText = `Try Again!!! ${i} Chance Left`;
-        document.getElementById("hint").innerText="Hint:- Number is greter than the entered number "
+        document.getElementById("hint").innerText="Hint:- Number is greater than the entered number "
       }
       
     }
